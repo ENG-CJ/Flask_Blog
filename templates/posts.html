@@ -1,0 +1,87 @@
+
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Posts</title>
+{% endblock %}
+
+{% block body %} 
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ENG-CJ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExample01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Me</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="https://www.facebook.com/abdulrahman.haaji.1" target="__blank">facebook</a>
+            <a class="dropdown-item" href="https://wa.link/vyv8wc" target="__blank">Whatsapp</a>
+            <a class="dropdown-item" href="https://github.com/ENG-CJ " target="__blank">Github</a>
+          </div>
+        </li>
+      </ul>
+     
+    </div>
+</nav>
+<!-- <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">I AM ENG-CJ</h1>
+        <p>Success is no accident It is hardwork Perseverance Learning studying Sacrifice and Most of all Love of what you are doing
+          Or Learning To do. <br>Failure Is not The Opposite Of success it is a part of success</p>
+        <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+  
+    </div>  /container -->
+  
+  <!-- </main> -->
+  
+<div class="container-fluid">
+    <br>
+    <h1 style="display: inline;">All Posts</h1>
+    <a  class="btn btn-success float-right" href="/posts/new">+ New Post</a>
+
+</div>
+
+    <!-- loop over posts from app.py -->
+    <!-- using jinja2 rule -> flask rule -->
+    <hr>
+    <div class="container-fluid">
+        {% for post in posts %}
+            <h2 >{{ post.title }}</h2>
+            
+            {% if post.author %}
+                <small> Written By: {{post.author}}  On  {{ post.date_posted}} </small>
+            {% else %}
+                By: N/A
+            {% endif %}
+            <br><br>
+            <p >{{ post.content }}</p>
+            <a class="btn btn-danger" href="/posts/PC/ENGCJ/All_Posts/delete/{{ post.id }}">Delete</a>
+            <a class="btn btn-primary" href="/posts/PC/ENGCJ/All_Posts/edit/{{ post.id }}">Edit</a>
+            <hr>
+          
+            
+        
+        {% endfor %}
+
+        
+    </div>
+
+  
+{% endblock %}
