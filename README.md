@@ -1,2 +1,6 @@
 # Flask_Blog
-This is My First Flask Project (Python)
+Blog Posts Using 
+FrontEnd: HTML Bootstrap
+BackEnd: Flask(Python)
+Database: SqlAlchemy
+___________
